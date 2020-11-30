@@ -10,10 +10,9 @@ var app = new Vue({
     for (var i = 0; i < 10; i++) {
       axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
       .then(risposta => {
-        console.log(risposta); //elemento chiamato completo
-        console.log(risposta.data.response); //proprietà dell'obj che mi serve --> mail random generata.
-        let x = risposta.data.response;
-        this.listaMail.push(x);
+        //console.log(risposta); elemento chiamato completo
+        // console.log(risposta.data.response); proprietà dell'obj che mi serve --> mail random generata.
+        this.listaMail.push(risposta.data.response);
       });
     }
   }
