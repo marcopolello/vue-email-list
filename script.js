@@ -3,12 +3,18 @@
 
 var app = new Vue({
   el: '#app',
-  data () {
-    return {
-      info: null
-    }
+  data: {
+    listaMail: [],
   },
   mounted: function () {
-    axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-    .then()
-})
+    for (var i = 0; i < 10; i++) {
+      axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+      .then(risposta => {
+        console.log(risposta); //elemento chiamato completo
+        console.log(risposta.data.response); //proprietà dell'obj che mi serve --> mail random generata.
+        let x = risposta.data.response;
+        this.listaMail.push(x);
+      });
+    }
+  }
+});
